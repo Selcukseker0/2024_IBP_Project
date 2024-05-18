@@ -1,11 +1,29 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Duyurular') }}
+            {{ __('Product') }}
         </h2>
     </x-slot>
 
     <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
         .announcement {
             border: 1px solid #e2e8f0;
             border-radius: 8px;
@@ -37,20 +55,25 @@
 
                     <!-- Arama Formu -->
                     <form action="{{ route('announcements.search') }}" method="GET" class="mb-4">
-                        <input type="text" name="search" placeholder="Arama yap..." class="border border-gray-300 p-2 rounded-md mr-2">
+                        <input type="text" name="search" placeholder="Arama yap..."
+                            class="border border-gray-300 p-2 rounded-md mr-2">
                         <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Ara</button>
                     </form>
 
                     <!-- Duyurular -->
-                    @foreach ($announcements as $announcement)
-                        <div class="announcement">
-                            <h3 class="announcement-title">{{ $announcement->title }}</h3>
-                            <p class="announcement-content">{{ $announcement->content }}</p>
+                    @foreach ($product as $item)
+                        <div class="product">
+                            <h1>{{ $item->name }}</h1>
+                            <p>Description :{{ $item->description }}</p>
+                            <p class="price">Price: {{ $item->price }}</p>
+                            <p class="category">Category: {{ $item->category }}</p>
+                            <img src="{{ $item->image }}" alt="{{ $item->name }}">
                         </div>
                     @endforeach
 
                     <!-- Geri Dön Butonu -->
                     <a href="{{ route('dashboard') }}" class="return-button bg-gray-500 text-white p-2 rounded-md">Go WebPage</a>
+
                 </div>
             </div>
         </div>

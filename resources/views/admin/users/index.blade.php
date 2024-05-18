@@ -12,6 +12,9 @@
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1>User List</h1>
                         <!-- Geri Dön Butonu -->
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Create</a>
+                    </div>
+                    <hr />
                         <a href="{{ url()->previous() }}" class="btn btn-secondary">Go Back</a>
                     </div>
                     <hr />

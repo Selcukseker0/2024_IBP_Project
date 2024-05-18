@@ -15,4 +15,5 @@ class HomeController extends Controller
         // Here you can add any additional logic if needed
         return view('Personal');
     }
+
 }
